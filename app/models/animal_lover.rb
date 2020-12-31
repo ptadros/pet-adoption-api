@@ -1,0 +1,2 @@
+class AnimalLover < ApplicationRecord
+end

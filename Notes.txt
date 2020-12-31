@@ -1,0 +1,11 @@
+Some notes regarding the web service:
+1) The webservice is not fully implemented as mentioned in the problem statement.
+2) The fully implemented endpoints are
+    2.1 Create a new animal shelter "POST /api/v1/animal_shelters"
+    2.2 Retrieve animals of a shelter "GET /api/v1/animal_shelters/{id}/animals"
+    2.3 Delete an existing animal shelter "DELETE /api/v1/animal_shelters/:id"
+3) Not all database constraints are added. I focused more on designing the web service interface. The models and migrations in the project have minimal fields and few constraints. This is not completed.
+4) I wrote some integration tests before using Swagger so I kept them commented in the source code for a reference. It is my first time to use Swagger as well.
+5) The code is not fully refactored. Some code can be shared specially for handling errors. I just implemented the basic stuff with acceptable code version from my point of view but extra refactoring can be done for the actual web service.
+6) The solution is implemented using Rails 5.2 API mode and Ruby 2.5.0
+7) I only added swagger for two endpoints which I fully implemented not for all because of time limit.

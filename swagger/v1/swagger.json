@@ -1,0 +1,115 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/animal_shelters": {
+      "post": {
+        "summary": "Creates an animal shelter",
+        "tags": [
+          "Shelters"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "animal_shelter",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Animal shelter created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/api/v1/animal_shelters/{id}/animals": {
+      "get": {
+        "summary": "Retrieve animals of an animal shelter",
+        "tags": [
+          "Animals"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Animals found",
+            "schema": {
+              "type": "array",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "animal_picture": {
+                  "type": "string"
+                },
+                "medical_condition": {
+                  "type": "string"
+                },
+                "current_temporary_name": {
+                  "type": "string"
+                },
+                "supposed_race": {
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "is_adaptable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "animal_picture",
+                "medical_condition",
+                "current_temporary_name",
+                "is_adaptable"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
